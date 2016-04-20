@@ -1,0 +1,7 @@
+add $s3 $s1 $s2
+sub $s4 $s3 $s5
+add $t0 $s3 $s4
+mult lo $s5 $s6 
+move $t1 lo $zero
+lw $t2 100 $t0
+add $t3 $t2 $t0
