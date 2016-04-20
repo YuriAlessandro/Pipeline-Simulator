@@ -14,8 +14,11 @@
 
 int main(int argc, char const *argv[]){
 	
+	/* Nome do arquivo com as intruções a serem analisadas. */
 	std::string filename;
 
+	/* Recebe o nome do arquivo por parâmetro, roda o caso
+	 * padrão caso não seja inserido. */
 	if (argc > 1){
 		fileName = argv[1];
 	}else{
@@ -24,6 +27,7 @@ int main(int argc, char const *argv[]){
 		return EXIT_FAILURE;
 	}
 
+	
 	
 
 	return EXIT_SUCESS;
