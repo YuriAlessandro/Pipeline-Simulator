@@ -35,8 +35,6 @@ int main(int argc, char const *argv[]){
 	}
 	
 	readFile( filename, instructions);
-	
-	//analysis_statement( instructions );
 
 	return EXIT_SUCCESS;
 }
