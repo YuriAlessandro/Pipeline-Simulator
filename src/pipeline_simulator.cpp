@@ -34,7 +34,13 @@ int main(int argc, char const *argv[]){
 		return EXIT_FAILURE;
 	}
 	
-	readFile( filename, instructions);
+	std::cout << "The instructions read are:\n";
+	
+	for (unsigned int i(0); i < instructions.size(); i++) {
+		if (i % 4 == 0 and i != 0) std::cout << std::endl;	//Boa
+		std::cout << instructions.at(i) << " ";
+	}
+	std::cout << std::endl;
 
 	return EXIT_SUCCESS;
 }
