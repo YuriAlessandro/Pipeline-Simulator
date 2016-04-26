@@ -11,7 +11,7 @@ bool readFile( std::string _filename,
     
     std::ifstream file(_filename);
     if( ! file.is_open() ){
-        std::cout << "Something went wrong with de read file...\n";
+        std::cout << "Something went wrong with the read file...\n";
         return false;
     }
     

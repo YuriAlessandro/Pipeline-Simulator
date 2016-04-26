@@ -14,5 +14,5 @@ std::string instructions::getName ()
 
 std::vector<std::string> instructions::getOperands ()
 {
-    
+    return operands;
 }
