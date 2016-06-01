@@ -10,37 +10,47 @@
 
 
 #include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <cstdlib>
 
-#include "functions.cpp"
+#include "functions.h"
 
-int main(int argc, char const *argv[]){
+int main(int argc, char const *argv[])
+{
+	std::system("clear");
 	
 	/* Nome do arquivo com as intruções a serem analisadas. */
 	std::string filename;
-	std::vector<std::string> instructions; 
+	std::vector<Instruction> inst_vec; 
 
 	/* Recebe o nome do arquivo por parâmetro, roda o caso
 	 * padrão caso não seja inserido. */
-	if (argc > 1){
+	
+	std::cout << "Preparing to read \"" << argv[1] << "\" file.\n";
+	
+	if (argc > 1)
+	{
 		filename = argv[1];
-	}else{
+	}
+	
+	else
+	{
 		std::cout << ">>> WARNING: filename not set.\n";
-		std::cout << ">>> Please, try again with < $ ./EX <filename>\n";
+		std::cout << ">>> Please, try again with < $ ./EX [filename]\n";
 		return EXIT_FAILURE;
 	}
 	
-	if( !readFile( filename, instructions ) ){
+	if( !readFile( filename, inst_vec ) )
+	{
 		std::cout << ">>> ERROR: File not found\n";
 		return EXIT_FAILURE;
 	}
+	std::cout << "File opened successfully!\n";
+	std::cout << "Generating Pipeline...\n";
 	
-	std::cout << "The instructions read are:\n";
+	analysis( inst_vec );
 	
-	for (unsigned int i(0); i < instructions.size(); i++) {
-		if (i % 4 == 0 and i != 0) std::cout << std::endl;	//Boa
-		std::cout << instructions.at(i) << " ";
-	}
-	std::cout << std::endl;
-
 	return EXIT_SUCCESS;
 }

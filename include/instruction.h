@@ -1,32 +1,36 @@
-#include <vector>
-
 #ifndef _INSTRUCTION_
 #define _INSTRUCTION_
 
-class instructions
+#include <iostream>
+#include <string>
+#include <vector>
+
+class Instruction
 {
     private:
-        std::string name;
-        std::vector <std::string> operands (3);
+        std::string m_name;
+        std::string m_dest;
+        std::string m_op1;
+        std::string m_op2;
 
     public:
         //Constructor
-        instructions(std::vector <std::string>);
+        Instruction( std::string );
         
         //Disabling constructor without parameters
-        instructions() = 0;
         
         //Destructor
-        ~instructions ( ) 
-        { 
-            delete name;
-            delete operands;
-        }
+        //~Instruction ( );
         
         //Getters
-        std::string getName ();
-        std::vector<std::string> getOperands ();
-}
+        std::string getName();
+        std::string getDest();
+        std::string getOp1();
+        std::string getOp2();
+        
+        //print method
+        void print( /* Empty */ );
+};
 
 #include "instruction.inl"
 
