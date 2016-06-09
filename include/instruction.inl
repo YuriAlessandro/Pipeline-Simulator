@@ -6,11 +6,11 @@ Instruction::Instruction( std::string inst_line ) :
     
     for(auto i (0u); i < inst_line.length(); ++i)
     {
-        if(inst_line[i] == ' ')
+        if(inst_line[i] == ' ' or inst_line[i] == ',')
             continue;
         else 
         {
-            while(inst_line[i] != ' ' && i < inst_line.length())
+            while(inst_line[i] != ' ' and inst_line[i] != ',' and i < inst_line.length())
             {
                 aux += inst_line[i++];
             }
@@ -21,21 +21,83 @@ Instruction::Instruction( std::string inst_line ) :
     
     if(tokenized[0] == "lw" or tokenized[0] == "addi" or tokenized[0] == "subi")
     {
-        m_name = tokenized[0];
-        m_dest = tokenized[1];
-        m_op1 = tokenized[2];
+        if((tokenized[0] == "lw" and tokenized.size() < 3) or 
+        ((tokenized[0] == "addi" or tokenized[0] == "subi") and tokenized.size() < 4 ))
+        {
+            std::cout << "Invalid instruction format for " << tokenized[0] << std::endl;
+        }
+        else 
+        {
+            m_name = tokenized[0];
+            m_dest = tokenized[1];
+            m_op1 = tokenized[2];
+        }
     }
     else if(tokenized[0] == "sw")
     {
-        m_name = tokenized[0];
-        m_op1 = tokenized[1];
+        if(tokenized.size() < 3)
+        {
+            std::cout << "Invalid instruction format for " << tokenized[0] << std::endl;
+        }
+        else 
+        {
+            m_name = tokenized[0];
+            m_dest = tokenized[2];
+            m_op1 = tokenized[1];
+        }
+    }
+    else if(tokenized[0] == "beq" or tokenized[0] == "bne")
+    {
+        if(tokenized.size() < 4)
+        {
+            std::cout << "Invalid instruction format for " << tokenized[0] << std::endl;
+        }
+        else 
+        {
+            m_name = tokenized[0];
+            m_op1 = tokenized[1];
+            m_op2 = tokenized[3];
+        }
+    }
+    else if(tokenized[0] == "mfhi" or tokenized[0] == "mflo")
+    {
+        if(tokenized.size() < 2)
+        {
+            std::cout << "Invalid instruction format for " << tokenized[0] << std::endl;
+        }
+        else 
+        {
+            m_name = tokenized[0];
+            m_dest = tokenized[1];
+        }
+    }
+    else if(tokenized[0] == "mult" and tokenized[1] != "lo")
+    {
+        if(tokenized.size() < 3)
+        {
+            std::cout << "Invalid instruction format for " << tokenized[0] << std::endl;
+        }
+        else
+        {
+            m_name = tokenized[0];
+            m_dest = "lo";
+            m_op1 = tokenized[1];
+            m_op2 = tokenized[2];
+        }
     }
     else
     {
-        m_name = tokenized[0];
-        m_dest = tokenized[1];
-        m_op1 = tokenized[2];
-        m_op2 = tokenized[3];
+        if(tokenized.size() < 4)
+        {
+            std::cout << "Invalid instruction format for " << tokenized[0] << std::endl;
+        }
+        else
+        {
+            m_name = tokenized[0];
+            m_dest = tokenized[1];
+            m_op1 = tokenized[2];
+            m_op2 = tokenized[3];
+        }
     }
 }
 

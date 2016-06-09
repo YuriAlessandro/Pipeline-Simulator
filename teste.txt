@@ -1,0 +1,10 @@
+sub     $s0,   $s1,   $s2
+addi   $s3,   $s0,   10
+lw     $s4,   0($s0)
+add   $s1,   $s4,   $s3
+sub   $s2,   $s3,   $s1
+sw     $s2,   10($s1)
+and   $s9, $s7, $s7
+addi   $s6, $s7, 4
+sw     $s3,   128($s1)
+sw     $s9,   64($s1)
