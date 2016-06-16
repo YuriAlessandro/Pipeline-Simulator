@@ -26,7 +26,7 @@ bool readFile( std::string & _filename,
 }
 
 void analysis( std::vector<Instruction> inst_vec ){
-    int t = 0;
+    unsigned int t = 0;
     
     Queue<std::string> operators;
     
@@ -54,6 +54,9 @@ void analysis( std::vector<Instruction> inst_vec ){
             }
         }
     }
+    
+    if (t < 5) t = 4;
+    
     while(!operators.isEmpty())
     {
         operators.dequeue();

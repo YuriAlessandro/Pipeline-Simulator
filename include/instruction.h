@@ -23,10 +23,10 @@ class Instruction
         //~Instruction ( );
         
         //Getters
-        std::string getName();
-        std::string getDest();
-        std::string getOp1();
-        std::string getOp2();
+        std::string getName( /* Empty */ );
+        std::string getDest( /* Empty */ );
+        std::string getOp1( /* Empty */ );
+        std::string getOp2( /* Empty */ );
         
         //print method
         void print( /* Empty */ );

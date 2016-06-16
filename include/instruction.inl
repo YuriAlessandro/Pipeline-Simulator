@@ -1,5 +1,5 @@
 Instruction::Instruction( std::string inst_line ) : 
-             m_name( "void" ), m_dest( "void" ), m_op1( "void" ), m_op2 ( "void" )
+             m_name( "devoid" ), m_dest( "devoid" ), m_op1( "devoid" ), m_op2 ( "devoid" )
 {
     std::string aux = "";
     std::vector<std::string> tokenized; 
