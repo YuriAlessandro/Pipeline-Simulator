@@ -1,5 +1,9 @@
 # Ignore executable
 ex
 
-# Ignore bin folder
-bin/
+# Ignore bin and build content
+bin/*
+build/*
+
+# Don't ignore .gitkeep files
+!*.gitkeep

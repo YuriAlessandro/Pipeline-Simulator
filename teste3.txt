@@ -1,10 +1,10 @@
 lw $s0, 0($s1)
 lw $s2, 64($s1)
 add $s3, $s2, $s0
-sub $t0, $s3, $t1 
-sw   $t0, 128($s1) 
+sub $t0, $s3, $t1
+sw   $t0, 128($s1)
 addi $t0, $t0, 1
 mult $t0, $t2
 mflo $t3
-add $s0, $t3, $s2 
+add $s0, $t3, $s2
 sw $s0, 0($s1)
