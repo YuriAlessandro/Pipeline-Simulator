@@ -17,9 +17,9 @@ HEADEREXT = h
 # SOURCES LIST
 SOURCES = $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 # OBJECTS
-OBJS = $(patsubst $(SRCDIR)/%, $(BUILDDIR)/%, $(SOURCES:.$(SRCEXT)=.o))  
+OBJS = $(patsubst $(SRCDIR)/%, $(BUILDDIR)/%, $(SOURCES:.$(SRCEXT)=.o))
 # COMPILER
-CC = g++ 
+CC = g++
 # FOR CLEANING
 RM = /bin/rm
 # WARNING FLAG
@@ -30,7 +30,7 @@ DEBUG = -g
 #LIBOPTS = -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio
 #LIBFLAG = -L $(LIBDIR) $(LIBOPTS)
 INCFLAG = -I $(INCDIR)
-LFLAGS = $(DEBUG) $(WARN) $(INCFLAG) 
+LFLAGS = $(DEBUG) $(WARN) $(INCFLAG)
 #$(LIBFLAG)
 # COMPILATION FLAGS
 CFLAGS = $(DEBUG) -c $(WARN) -std=c++11
@@ -44,12 +44,12 @@ $(TARGET): $(OBJS)
 	@echo " $(CC) $^ -o $(TARGET) $(LFLAGS)"; $(CC) $^ -o $(TARGET) $(LFLAGS)
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 	@mkdir -p $(BUILDDIR)
-	@echo " $(CC) $(CFLAGS) $(INCFLAG) -o $@ $<"; $(CC) $(CFLAGS) $(INCFLAG) -o $@ $<	
+	@echo " $(CC) $(CFLAGS) $(INCFLAG) -o $@ $<"; $(CC) $(CFLAGS) $(INCFLAG) -o $@ $<
 
 # DUMMY ENTRIES
 clean:
 	@echo "Cleaning..."
-	@echo " $(RM) -r $(BUILDDIR) $(TARGET)"; $(RM) -r $(BUILDDIR) $(TARGET)
+	@echo " $(RM) -r $(OBJS) $(TARGET)"; $(RM) -r $(OBJS) $(TARGET)
 
 .PHONY: clean
 
