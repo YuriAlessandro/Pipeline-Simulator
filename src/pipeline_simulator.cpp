@@ -14,7 +14,6 @@
 #include <string>
 #include <vector>
 #include <cstdlib>
-
 #include "functions.h"
 
 int main(int argc, char const *argv[])
